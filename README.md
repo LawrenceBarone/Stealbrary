@@ -1,2 +1,2 @@
-# Stealbrery
+# Stealbrary
 GameJam0623
