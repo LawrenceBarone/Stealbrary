@@ -31,9 +31,8 @@ public class S_BookPile : MonoBehaviour
 
             if (timeBeforeFall<0)
             {
-
+                currentAmount = 0;
             }
-
         }
         else 
         {
