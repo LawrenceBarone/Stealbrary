@@ -136,6 +136,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book_Shelf_Base (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 414542857213245324, guid: 257c8669d4bb16842aac9d30f7dd4325,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7883713968776037741, guid: 257c8669d4bb16842aac9d30f7dd4325,
         type: 3}
       propertyPath: m_RootOrder
@@ -351,7 +356,7 @@ VisualEffect:
       - m_Value: {x: 3.9710813, y: 0.4993, z: 0.23604333}
         m_Name: New Axis Aligned Box_size
         m_Overridden: 1
-      - m_Value: {x: -0.03, y: 0, z: -8.3}
+      - m_Value: {x: -0.03, y: 0, z: -3.77}
         m_Name: Player Position
         m_Overridden: 1
     m_Vector4f:
@@ -541,7 +546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4095570033422622, guid: 41c209abb2d73574a9baf7bf474510cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.3
+      value: -3.77
       objectReference: {fileID: 0}
     - target: {fileID: 4095570033422622, guid: 41c209abb2d73574a9baf7bf474510cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -790,7 +795,7 @@ VisualEffect:
       - m_Value: {x: 3.9710813, y: 0.4993, z: 0.29138273}
         m_Name: New Axis Aligned Box_size
         m_Overridden: 1
-      - m_Value: {x: -0.03, y: 0, z: -8.3}
+      - m_Value: {x: -0.03, y: 0, z: -3.77}
         m_Name: Player Position
         m_Overridden: 1
     m_Vector4f:
