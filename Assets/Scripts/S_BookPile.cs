@@ -13,6 +13,7 @@ public class S_BookPile : MonoBehaviour
     [SerializeField] int maxPileUp = 10;
     [SerializeField] int currentAmount = 0;
     [SerializeField] float sensivity = 5;
+    [SerializeField] float timeBeforeFall = 1;
 
     private void Awake()
     {
@@ -25,7 +26,18 @@ public class S_BookPile : MonoBehaviour
         if (rb.velocity.magnitude >sensivity)
         {
             Debug.Log("reset");
-            currentAmount = 0;
+            //currentAmount = 0;
+            timeBeforeFall -= Time.deltaTime;
+
+            if (timeBeforeFall<0)
+            {
+
+            }
+
+        }
+        else 
+        {
+            timeBeforeFall = 1;
         }
     }
 
