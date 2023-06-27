@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class S_Gamemode : MonoBehaviour
 {
@@ -28,14 +29,17 @@ public class S_Gamemode : MonoBehaviour
 
     }
 
-
     void Awake()
     {
         _instance = this;
     }
 
     public float startTime = 60;
-    float time = 60; 
+    public int score;
+    float time = 60;
+    bool GameOver = false;
+
+    //Dictionary<string,score>() PlayerScore;
 
     void Start()
     {
@@ -44,6 +48,8 @@ public class S_Gamemode : MonoBehaviour
 
     void Update()
     {
+        if (GameOver) return;
+
         time -= Time.deltaTime;
 
         if (time<0)
@@ -59,6 +65,14 @@ public class S_Gamemode : MonoBehaviour
 
     public void Loose()
     {
+        GameOver = true;
+        StartCoroutine(GameOverSequence());
+    }
 
-    }   
+    IEnumerator GameOverSequence()
+    {
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadScene("Game");
+    }
 }

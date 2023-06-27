@@ -1,0 +1,227 @@
+// This file is generated. Do not modify by hand.
+// XML documentation file not found. To check if public methods have XML comments,
+// make sure the XML doc file is present and located next to the scraped dll
+namespace Unity.Services.Leaderboards
+{
+    public class GetPlayerRangeOptions : Unity.Services.Leaderboards.RangeOptions
+    {
+        public GetPlayerRangeOptions() {}
+    }
+
+    public class GetScoresByTierOptions : Unity.Services.Leaderboards.PaginationOptions
+    {
+        public GetScoresByTierOptions() {}
+    }
+
+    public class GetScoresOptions : Unity.Services.Leaderboards.PaginationOptions
+    {
+        public GetScoresOptions() {}
+    }
+
+    public class GetVersionPlayerRangeOptions : Unity.Services.Leaderboards.RangeOptions
+    {
+        public GetVersionPlayerRangeOptions() {}
+    }
+
+    public class GetVersionScoresByTierOptions : Unity.Services.Leaderboards.PaginationOptions
+    {
+        public GetVersionScoresByTierOptions() {}
+    }
+
+    public class GetVersionScoresOptions : Unity.Services.Leaderboards.PaginationOptions
+    {
+        public GetVersionScoresOptions() {}
+    }
+
+    public interface ILeaderboardsService
+    {
+        public abstract System.Threading.Tasks.Task<Unity.Services.Leaderboards.Models.LeaderboardEntry> AddPlayerScoreAsync(string leaderboardId, double score);
+        public abstract System.Threading.Tasks.Task<Unity.Services.Leaderboards.Models.LeaderboardScores> GetPlayerRangeAsync(string leaderboardId, Unity.Services.Leaderboards.GetPlayerRangeOptions options = default(Unity.Services.Leaderboards.GetPlayerRangeOptions));
+        public abstract System.Threading.Tasks.Task<Unity.Services.Leaderboards.Models.LeaderboardEntry> GetPlayerScoreAsync(string leaderboardId);
+        public abstract System.Threading.Tasks.Task<Unity.Services.Leaderboards.Models.LeaderboardScoresPage> GetScoresAsync(string leaderboardId, Unity.Services.Leaderboards.GetScoresOptions options = default(Unity.Services.Leaderboards.GetScoresOptions));
+        public abstract System.Threading.Tasks.Task<Unity.Services.Leaderboards.Models.LeaderboardScoresWithNotFoundPlayerIds> GetScoresByPlayerIdsAsync(string leaderboardId, System.Collections.Generic.List<string> playerIds);
+        public abstract System.Threading.Tasks.Task<Unity.Services.Leaderboards.Models.LeaderboardTierScoresPage> GetScoresByTierAsync(string leaderboardId, string tierId, Unity.Services.Leaderboards.GetScoresByTierOptions options = default(Unity.Services.Leaderboards.GetScoresByTierOptions));
+        public abstract System.Threading.Tasks.Task<Unity.Services.Leaderboards.Models.LeaderboardVersionScores> GetVersionPlayerRangeAsync(string leaderboardId, string versionId, Unity.Services.Leaderboards.GetVersionPlayerRangeOptions options = default(Unity.Services.Leaderboards.GetVersionPlayerRangeOptions));
+        public abstract System.Threading.Tasks.Task<Unity.Services.Leaderboards.Models.LeaderboardVersionEntry> GetVersionPlayerScoreAsync(string leaderboardId, string versionId);
+        public abstract System.Threading.Tasks.Task<Unity.Services.Leaderboards.Models.LeaderboardVersions> GetVersionsAsync(string leaderboardId);
+        public abstract System.Threading.Tasks.Task<Unity.Services.Leaderboards.Models.LeaderboardVersionScoresPage> GetVersionScoresAsync(string leaderboardId, string versionId, Unity.Services.Leaderboards.GetVersionScoresOptions options = default(Unity.Services.Leaderboards.GetVersionScoresOptions));
+        public abstract System.Threading.Tasks.Task<Unity.Services.Leaderboards.Models.LeaderboardVersionScoresWithNotFoundPlayerIds> GetVersionScoresByPlayerIdsAsync(string leaderboardId, string versionId, System.Collections.Generic.List<string> playerIds);
+        public abstract System.Threading.Tasks.Task<Unity.Services.Leaderboards.Models.LeaderboardVersionTierScoresPage> GetVersionScoresByTierAsync(string leaderboardId, string versionId, string tierId, Unity.Services.Leaderboards.GetVersionScoresByTierOptions options = default(Unity.Services.Leaderboards.GetVersionScoresByTierOptions));
+    }
+
+    public static class LeaderboardsService
+    {
+        public static Unity.Services.Leaderboards.ILeaderboardsService Instance { get; }
+    }
+
+    public class PaginationOptions
+    {
+        public System.Nullable<int> Limit { get; set; }
+        public System.Nullable<int> Offset { get; set; }
+        public PaginationOptions() {}
+    }
+
+    public class RangeOptions
+    {
+        public System.Nullable<int> RangeLimit { get; set; }
+        public RangeOptions() {}
+    }
+}
+
+namespace Unity.Services.Leaderboards.Exceptions
+{
+    [UnityEngine.Scripting.Preserve] public class LeaderboardsException : Unity.Services.Core.RequestFailedException
+    {
+        [UnityEngine.Scripting.Preserve] public Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason Reason { get; }
+    }
+
+    [UnityEngine.Scripting.Preserve] public enum LeaderboardsExceptionReason
+    {
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason AccessTokenMissing = 4;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason BucketNotFound = 13;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason EntryNotFound = 11;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason InvalidArgument = 5;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason LeaderboardBucketed = 7;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason LeaderboardNotBucketed = 6;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason LeaderboardNotFound = 10;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason LeaderboardNotTiered = 8;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason NoInternetConnection = 1;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason NotFound = 15;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason PlayerIdMissing = 3;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason ProjectIdMissing = 2;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason ScoreSubmissionRequired = 18;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason ServiceUnavailable = 17;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason TierNotFound = 14;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason TooManyRequests = 16;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason Unauthorized = 9;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason Unknown = 0;
+        public int value__;
+        public const Unity.Services.Leaderboards.Exceptions.LeaderboardsExceptionReason VersionNotFound = 12;
+    }
+
+    public class LeaderboardsRateLimitedException : Unity.Services.Leaderboards.Exceptions.LeaderboardsException
+    {
+        public float RetryAfter { get; set; }
+    }
+
+    [UnityEngine.Scripting.Preserve] public class LeaderboardsValidationErrorDetail
+    {
+        [UnityEngine.Scripting.Preserve] public string Field { get; }
+        [UnityEngine.Scripting.Preserve] public System.Collections.Generic.List<string> Messages { get; }
+        [UnityEngine.Scripting.Preserve] public LeaderboardsValidationErrorDetail(string field, System.Collections.Generic.List<string> messages) {}
+        [UnityEngine.Scripting.Preserve] public virtual string ToString();
+    }
+
+    [UnityEngine.Scripting.Preserve] public class LeaderboardsValidationException : Unity.Services.Leaderboards.Exceptions.LeaderboardsException
+    {
+        [UnityEngine.Scripting.Preserve] public System.Collections.Generic.List<Unity.Services.Leaderboards.Exceptions.LeaderboardsValidationErrorDetail> Details { get; }
+    }
+}
+
+namespace Unity.Services.Leaderboards.Models
+{
+    [System.Runtime.Serialization.DataContract(Name = @"LeaderboardEntry")] [UnityEngine.Scripting.Preserve] public class LeaderboardEntry
+    {
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = true, IsRequired = true, Name = @"playerId")] [UnityEngine.Scripting.Preserve] public string PlayerId { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = true, IsRequired = true, Name = @"playerName")] [UnityEngine.Scripting.Preserve] public string PlayerName { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = true, IsRequired = true, Name = @"rank")] [UnityEngine.Scripting.Preserve] public int Rank { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = true, IsRequired = true, Name = @"score")] [UnityEngine.Scripting.Preserve] public double Score { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"tier")] [UnityEngine.Scripting.Preserve] public string Tier { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"updatedTime")] [UnityEngine.Scripting.Preserve] public System.DateTime UpdatedTime { get; }
+        [UnityEngine.Scripting.Preserve] public LeaderboardEntry(string playerId, string playerName, int rank, double score, string tier = default(string), System.DateTime updatedTime = default(System.DateTime)) {}
+    }
+
+    [System.Runtime.Serialization.DataContract(Name = @"LeaderboardScores")] [UnityEngine.Scripting.Preserve] public class LeaderboardScores
+    {
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"results")] [UnityEngine.Scripting.Preserve] public System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> Results { get; }
+        [UnityEngine.Scripting.Preserve] public LeaderboardScores(System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> results = default(System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry>)) {}
+    }
+
+    [System.Runtime.Serialization.DataContract(Name = @"LeaderboardScoresPage")] [UnityEngine.Scripting.Preserve] public class LeaderboardScoresPage
+    {
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"limit")] [UnityEngine.Scripting.Preserve] public int Limit { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"offset")] [UnityEngine.Scripting.Preserve] public int Offset { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"results")] [UnityEngine.Scripting.Preserve] public System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> Results { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"total")] [UnityEngine.Scripting.Preserve] public int Total { get; }
+        [UnityEngine.Scripting.Preserve] public LeaderboardScoresPage(int offset = 0, int limit = 0, int total = 0, System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> results = default(System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry>)) {}
+    }
+
+    [System.Runtime.Serialization.DataContract(Name = @"LeaderboardScoresWithNotFoundPlayerIds")] [UnityEngine.Scripting.Preserve] public class LeaderboardScoresWithNotFoundPlayerIds
+    {
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"entriesNotFoundForPlayerIds")] [UnityEngine.Scripting.Preserve] public System.Collections.Generic.List<string> EntriesNotFoundForPlayerIds { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"results")] [UnityEngine.Scripting.Preserve] public System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> Results { get; }
+        [UnityEngine.Scripting.Preserve] public LeaderboardScoresWithNotFoundPlayerIds(System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> results = default(System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry>), System.Collections.Generic.List<string> playerIds = default(System.Collections.Generic.List<string>)) {}
+    }
+
+    [System.Runtime.Serialization.DataContract(Name = @"LeaderboardTierScoresPage")] [UnityEngine.Scripting.Preserve] public class LeaderboardTierScoresPage
+    {
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"limit")] [UnityEngine.Scripting.Preserve] public int Limit { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"offset")] [UnityEngine.Scripting.Preserve] public int Offset { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"results")] [UnityEngine.Scripting.Preserve] public System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> Results { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"tier")] [UnityEngine.Scripting.Preserve] public string Tier { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"total")] [UnityEngine.Scripting.Preserve] public int Total { get; }
+        [UnityEngine.Scripting.Preserve] public LeaderboardTierScoresPage(string tier = default(string), int offset = 0, int limit = 0, int total = 0, System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> results = default(System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry>)) {}
+    }
+
+    [System.Runtime.Serialization.DataContract(Name = @"LeaderboardVersion")] [UnityEngine.Scripting.Preserve] public class LeaderboardVersion
+    {
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"end")] [UnityEngine.Scripting.Preserve] public System.DateTime End { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"id")] [UnityEngine.Scripting.Preserve] public string Id { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"start")] [UnityEngine.Scripting.Preserve] public System.DateTime Start { get; }
+        [UnityEngine.Scripting.Preserve] public LeaderboardVersion(string id = default(string), System.DateTime start = default(System.DateTime), System.DateTime end = default(System.DateTime)) {}
+    }
+
+    [System.Runtime.Serialization.DataContract(Name = @"LeaderboardVersionEntry")] [UnityEngine.Scripting.Preserve] public class LeaderboardVersionEntry
+    {
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = true, IsRequired = true, Name = @"playerId")] [UnityEngine.Scripting.Preserve] public string PlayerId { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = true, IsRequired = true, Name = @"playerName")] [UnityEngine.Scripting.Preserve] public string PlayerName { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = true, IsRequired = true, Name = @"rank")] [UnityEngine.Scripting.Preserve] public int Rank { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = true, IsRequired = true, Name = @"score")] [UnityEngine.Scripting.Preserve] public double Score { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"version")] [UnityEngine.Scripting.Preserve] public Unity.Services.Leaderboards.Models.LeaderboardVersion Version { get; }
+        [UnityEngine.Scripting.Preserve] public LeaderboardVersionEntry(string playerId, string playerName, int rank, double score, Unity.Services.Leaderboards.Models.LeaderboardVersion version = default(Unity.Services.Leaderboards.Models.LeaderboardVersion)) {}
+    }
+
+    [System.Runtime.Serialization.DataContract(Name = @"LeaderboardVersions")] [UnityEngine.Scripting.Preserve] public class LeaderboardVersions
+    {
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"leaderboardId")] [UnityEngine.Scripting.Preserve] public string LeaderboardId { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"nextReset")] [UnityEngine.Scripting.Preserve] public System.DateTime NextReset { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"results")] [UnityEngine.Scripting.Preserve] public System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardVersion> Results { get; }
+        [UnityEngine.Scripting.Preserve] public LeaderboardVersions(string leaderboardId = default(string), System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardVersion> results = default(System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardVersion>), System.DateTime nextReset = default(System.DateTime)) {}
+    }
+
+    [System.Runtime.Serialization.DataContract(Name = @"LeaderboardVersionScores")] [UnityEngine.Scripting.Preserve] public class LeaderboardVersionScores
+    {
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"results")] [UnityEngine.Scripting.Preserve] public System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> Results { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"version")] [UnityEngine.Scripting.Preserve] public Unity.Services.Leaderboards.Models.LeaderboardVersion Version { get; }
+        [UnityEngine.Scripting.Preserve] public LeaderboardVersionScores(Unity.Services.Leaderboards.Models.LeaderboardVersion version = default(Unity.Services.Leaderboards.Models.LeaderboardVersion), System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> results = default(System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry>)) {}
+    }
+
+    [System.Runtime.Serialization.DataContract(Name = @"LeaderboardVersionScoresPage")] [UnityEngine.Scripting.Preserve] public class LeaderboardVersionScoresPage
+    {
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"limit")] [UnityEngine.Scripting.Preserve] public int Limit { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"offset")] [UnityEngine.Scripting.Preserve] public int Offset { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"results")] [UnityEngine.Scripting.Preserve] public System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> Results { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"total")] [UnityEngine.Scripting.Preserve] public int Total { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"version")] [UnityEngine.Scripting.Preserve] public Unity.Services.Leaderboards.Models.LeaderboardVersion Version { get; }
+        [UnityEngine.Scripting.Preserve] public LeaderboardVersionScoresPage(Unity.Services.Leaderboards.Models.LeaderboardVersion version = default(Unity.Services.Leaderboards.Models.LeaderboardVersion), int offset = 0, int limit = 0, int total = 0, System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> results = default(System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry>)) {}
+    }
+
+    [System.Runtime.Serialization.DataContract(Name = @"LeaderboardVersionScoresWithNotFoundPlayerIds")] [UnityEngine.Scripting.Preserve] public class LeaderboardVersionScoresWithNotFoundPlayerIds
+    {
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"entriesNotFoundForPlayerIds")] [UnityEngine.Scripting.Preserve] public System.Collections.Generic.List<string> EntriesNotFoundForPlayerIds { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"results")] [UnityEngine.Scripting.Preserve] public System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> Results { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"version")] [UnityEngine.Scripting.Preserve] public Unity.Services.Leaderboards.Models.LeaderboardVersion Version { get; }
+        [UnityEngine.Scripting.Preserve] public LeaderboardVersionScoresWithNotFoundPlayerIds(Unity.Services.Leaderboards.Models.LeaderboardVersion version = default(Unity.Services.Leaderboards.Models.LeaderboardVersion), System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> results = default(System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry>), System.Collections.Generic.List<string> playerIds = default(System.Collections.Generic.List<string>)) {}
+    }
+
+    [System.Runtime.Serialization.DataContract(Name = @"LeaderboardVersionTierScoresPage")] [UnityEngine.Scripting.Preserve] public class LeaderboardVersionTierScoresPage
+    {
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"limit")] [UnityEngine.Scripting.Preserve] public int Limit { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"offset")] [UnityEngine.Scripting.Preserve] public int Offset { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"results")] [UnityEngine.Scripting.Preserve] public System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> Results { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"tier")] [UnityEngine.Scripting.Preserve] public string Tier { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"total")] [UnityEngine.Scripting.Preserve] public int Total { get; }
+        [System.Runtime.Serialization.DataMember(EmitDefaultValue = false, Name = @"version")] [UnityEngine.Scripting.Preserve] public Unity.Services.Leaderboards.Models.LeaderboardVersion Version { get; }
+        [UnityEngine.Scripting.Preserve] public LeaderboardVersionTierScoresPage(Unity.Services.Leaderboards.Models.LeaderboardVersion version = default(Unity.Services.Leaderboards.Models.LeaderboardVersion), string tier = default(string), int offset = 0, int limit = 0, int total = 0, System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry> results = default(System.Collections.Generic.List<Unity.Services.Leaderboards.Models.LeaderboardEntry>)) {}
+    }
+}
