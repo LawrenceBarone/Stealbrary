@@ -223,29 +223,14 @@ GameObject:
   - component: {fileID: 498013141}
   - component: {fileID: 498013140}
   - component: {fileID: 498013139}
-  - component: {fileID: 498013138}
+  - component: {fileID: 498013143}
   m_Layer: 0
   m_Name: MagicalBook (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &498013138
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 498013137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c3070554d0a8944a95ff8f018c2c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Property:
-    m_Name: Position
-  Target: {fileID: 0}
+  m_IsActive: 1
 --- !u!114 &498013139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings: []
+  m_Bindings:
+  - {fileID: 498013143}
   m_VisualEffect: {fileID: 498013141}
 --- !u!73398921 &498013140
 VFXRenderer:
@@ -269,7 +255,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498013137}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -350,7 +336,7 @@ VisualEffect:
       - m_Value: {x: 3.9710813, y: 0.4993, z: 0.23604333}
         m_Name: New Axis Aligned Box_size
         m_Overridden: 1
-      - m_Value: {x: -0.03, y: 0, z: -8.3}
+      - m_Value: {x: -2.93, y: 0, z: -1.63}
         m_Name: Player Position
         m_Overridden: 1
     m_Vector4f:
@@ -390,6 +376,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &498013143
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498013137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c3070554d0a8944a95ff8f018c2c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Property:
+    m_Name: Player Position
+  Target: {fileID: 707000635}
 --- !u!4 &707000635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4037651715078038, guid: 41c209abb2d73574a9baf7bf474510cc,
@@ -532,7 +533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4095570033422622, guid: 41c209abb2d73574a9baf7bf474510cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03
+      value: -2.93
       objectReference: {fileID: 0}
     - target: {fileID: 4095570033422622, guid: 41c209abb2d73574a9baf7bf474510cc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -540,7 +541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4095570033422622, guid: 41c209abb2d73574a9baf7bf474510cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.3
+      value: -1.63
       objectReference: {fileID: 0}
     - target: {fileID: 4095570033422622, guid: 41c209abb2d73574a9baf7bf474510cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -789,7 +790,7 @@ VisualEffect:
       - m_Value: {x: 3.9710813, y: 0.4993, z: 0.29138273}
         m_Name: New Axis Aligned Box_size
         m_Overridden: 1
-      - m_Value: {x: -0.03, y: 0, z: -8.3}
+      - m_Value: {x: -2.93, y: 0, z: -1.63}
         m_Name: Player Position
         m_Overridden: 1
     m_Vector4f:
