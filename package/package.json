@@ -1,0 +1,33 @@
+{
+  "name": "com.unity.services.leaderboards",
+  "displayName": "Leaderboards",
+  "version": "1.0.0-exp.1",
+  "unity": "2020.3",
+  "description": "Add socio-competitive elements to your game by allowing users to compete on leaderboards. Use the Leaderboards service to store, sort, and rank player scores powered by Unity Gaming Services.",
+  "dependencies": {
+    "com.unity.services.authentication": "2.3.1",
+    "com.unity.services.core": "1.5.2"
+  },
+  "samples": [
+    {
+      "displayName": "Leaderboards Sample Scene",
+      "description": "Example scripts demonstrating the Leaderboards package.",
+      "path": "Samples~/Basic Example"
+    }
+  ],
+  "_upm": {
+    "gameService": {
+      "projectDashboardUrl": "https://dashboard.unity3d.com/organizations/{0}/projects/{1}/leaderboards/about",
+      "projectDashboardUrlType": "OrganizationKeyAndProjectGuid"
+    },
+    "supportedPlatforms": [
+      "Android",
+      "iOS",
+      "Linux",
+      "Mac",
+      "PC",
+      "Windows 8 Universal",
+      "Windows 10 Universal"
+    ]
+  }
+}
