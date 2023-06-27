@@ -1,137 +1,383 @@
 fileFormatVersion: 2
 guid: 9796892b1ba2e8d46a4d3e1f87a5225e
-timeCreated: 1539948797
-licenseType: Pro
 ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: Book
-    100002: Book1
-    100004: Book10
-    100006: Book13
-    100008: Book178
-    100010: Book179
-    100012: Book180
-    100014: Book181
-    100016: Book182
-    100018: Book183
-    100020: Book184
-    100022: Book185
-    100024: Book186
-    100026: Book2
-    100028: Book3
-    100030: Book4
-    100032: Book5
-    100034: Book6
-    100036: Book7
-    100038: Book8
-    100040: Book9
-    100042: //RootNode
-    100044: OpenBook
-    100046: OpenBook1
-    100048: OpenBook2
-    400000: Book
-    400002: Book1
-    400004: Book10
-    400006: Book13
-    400008: Book178
-    400010: Book179
-    400012: Book180
-    400014: Book181
-    400016: Book182
-    400018: Book183
-    400020: Book184
-    400022: Book185
-    400024: Book186
-    400026: Book2
-    400028: Book3
-    400030: Book4
-    400032: Book5
-    400034: Book6
-    400036: Book7
-    400038: Book8
-    400040: Book9
-    400042: //RootNode
-    400044: OpenBook
-    400046: OpenBook1
-    400048: OpenBook2
-    2100000: Books_Material_Set2
-    2100002: Books_Material_Set1
-    2300000: Book
-    2300002: Book1
-    2300004: Book10
-    2300006: Book13
-    2300008: Book178
-    2300010: Book179
-    2300012: Book180
-    2300014: Book181
-    2300016: Book182
-    2300018: Book183
-    2300020: Book184
-    2300022: Book185
-    2300024: Book186
-    2300026: Book2
-    2300028: Book3
-    2300030: Book4
-    2300032: Book5
-    2300034: Book6
-    2300036: Book7
-    2300038: Book8
-    2300040: Book9
-    2300042: OpenBook
-    2300044: OpenBook1
-    2300046: OpenBook2
-    3300000: Book
-    3300002: Book1
-    3300004: Book10
-    3300006: Book13
-    3300008: Book178
-    3300010: Book179
-    3300012: Book180
-    3300014: Book181
-    3300016: Book182
-    3300018: Book183
-    3300020: Book184
-    3300022: Book185
-    3300024: Book186
-    3300026: Book2
-    3300028: Book3
-    3300030: Book4
-    3300032: Book5
-    3300034: Book6
-    3300036: Book7
-    3300038: Book8
-    3300040: Book9
-    3300042: OpenBook
-    3300044: OpenBook1
-    3300046: OpenBook2
-    4300000: OpenBook2
-    4300002: OpenBook1
-    4300004: OpenBook
-    4300006: Book1
-    4300008: Book2
-    4300010: Book6
-    4300012: Book4
-    4300014: Book5
-    4300016: Book10
-    4300018: Book13
-    4300020: Book9
-    4300022: Book
-    4300024: Book186
-    4300026: Book185
-    4300028: Book8
-    4300030: Book184
-    4300032: Book183
-    4300034: Book182
-    4300036: Book181
-    4300038: Book7
-    4300040: Book180
-    4300042: Book3
-    4300044: Book179
-    4300046: Book178
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Book
+  - first:
+      1: 100002
+    second: Book1
+  - first:
+      1: 100004
+    second: Book10
+  - first:
+      1: 100006
+    second: Book13
+  - first:
+      1: 100008
+    second: Book178
+  - first:
+      1: 100010
+    second: Book179
+  - first:
+      1: 100012
+    second: Book180
+  - first:
+      1: 100014
+    second: Book181
+  - first:
+      1: 100016
+    second: Book182
+  - first:
+      1: 100018
+    second: Book183
+  - first:
+      1: 100020
+    second: Book184
+  - first:
+      1: 100022
+    second: Book185
+  - first:
+      1: 100024
+    second: Book186
+  - first:
+      1: 100026
+    second: Book2
+  - first:
+      1: 100028
+    second: Book3
+  - first:
+      1: 100030
+    second: Book4
+  - first:
+      1: 100032
+    second: Book5
+  - first:
+      1: 100034
+    second: Book6
+  - first:
+      1: 100036
+    second: Book7
+  - first:
+      1: 100038
+    second: Book8
+  - first:
+      1: 100040
+    second: Book9
+  - first:
+      1: 100042
+    second: //RootNode
+  - first:
+      1: 100044
+    second: OpenBook
+  - first:
+      1: 100046
+    second: OpenBook1
+  - first:
+      1: 100048
+    second: OpenBook2
+  - first:
+      4: 400000
+    second: Book
+  - first:
+      4: 400002
+    second: Book1
+  - first:
+      4: 400004
+    second: Book10
+  - first:
+      4: 400006
+    second: Book13
+  - first:
+      4: 400008
+    second: Book178
+  - first:
+      4: 400010
+    second: Book179
+  - first:
+      4: 400012
+    second: Book180
+  - first:
+      4: 400014
+    second: Book181
+  - first:
+      4: 400016
+    second: Book182
+  - first:
+      4: 400018
+    second: Book183
+  - first:
+      4: 400020
+    second: Book184
+  - first:
+      4: 400022
+    second: Book185
+  - first:
+      4: 400024
+    second: Book186
+  - first:
+      4: 400026
+    second: Book2
+  - first:
+      4: 400028
+    second: Book3
+  - first:
+      4: 400030
+    second: Book4
+  - first:
+      4: 400032
+    second: Book5
+  - first:
+      4: 400034
+    second: Book6
+  - first:
+      4: 400036
+    second: Book7
+  - first:
+      4: 400038
+    second: Book8
+  - first:
+      4: 400040
+    second: Book9
+  - first:
+      4: 400042
+    second: //RootNode
+  - first:
+      4: 400044
+    second: OpenBook
+  - first:
+      4: 400046
+    second: OpenBook1
+  - first:
+      4: 400048
+    second: OpenBook2
+  - first:
+      21: 2100000
+    second: Books_Material_Set2
+  - first:
+      21: 2100002
+    second: Books_Material_Set1
+  - first:
+      23: 2300000
+    second: Book
+  - first:
+      23: 2300002
+    second: Book1
+  - first:
+      23: 2300004
+    second: Book10
+  - first:
+      23: 2300006
+    second: Book13
+  - first:
+      23: 2300008
+    second: Book178
+  - first:
+      23: 2300010
+    second: Book179
+  - first:
+      23: 2300012
+    second: Book180
+  - first:
+      23: 2300014
+    second: Book181
+  - first:
+      23: 2300016
+    second: Book182
+  - first:
+      23: 2300018
+    second: Book183
+  - first:
+      23: 2300020
+    second: Book184
+  - first:
+      23: 2300022
+    second: Book185
+  - first:
+      23: 2300024
+    second: Book186
+  - first:
+      23: 2300026
+    second: Book2
+  - first:
+      23: 2300028
+    second: Book3
+  - first:
+      23: 2300030
+    second: Book4
+  - first:
+      23: 2300032
+    second: Book5
+  - first:
+      23: 2300034
+    second: Book6
+  - first:
+      23: 2300036
+    second: Book7
+  - first:
+      23: 2300038
+    second: Book8
+  - first:
+      23: 2300040
+    second: Book9
+  - first:
+      23: 2300042
+    second: OpenBook
+  - first:
+      23: 2300044
+    second: OpenBook1
+  - first:
+      23: 2300046
+    second: OpenBook2
+  - first:
+      33: 3300000
+    second: Book
+  - first:
+      33: 3300002
+    second: Book1
+  - first:
+      33: 3300004
+    second: Book10
+  - first:
+      33: 3300006
+    second: Book13
+  - first:
+      33: 3300008
+    second: Book178
+  - first:
+      33: 3300010
+    second: Book179
+  - first:
+      33: 3300012
+    second: Book180
+  - first:
+      33: 3300014
+    second: Book181
+  - first:
+      33: 3300016
+    second: Book182
+  - first:
+      33: 3300018
+    second: Book183
+  - first:
+      33: 3300020
+    second: Book184
+  - first:
+      33: 3300022
+    second: Book185
+  - first:
+      33: 3300024
+    second: Book186
+  - first:
+      33: 3300026
+    second: Book2
+  - first:
+      33: 3300028
+    second: Book3
+  - first:
+      33: 3300030
+    second: Book4
+  - first:
+      33: 3300032
+    second: Book5
+  - first:
+      33: 3300034
+    second: Book6
+  - first:
+      33: 3300036
+    second: Book7
+  - first:
+      33: 3300038
+    second: Book8
+  - first:
+      33: 3300040
+    second: Book9
+  - first:
+      33: 3300042
+    second: OpenBook
+  - first:
+      33: 3300044
+    second: OpenBook1
+  - first:
+      33: 3300046
+    second: OpenBook2
+  - first:
+      43: 4300000
+    second: OpenBook2
+  - first:
+      43: 4300002
+    second: OpenBook1
+  - first:
+      43: 4300004
+    second: OpenBook
+  - first:
+      43: 4300006
+    second: Book1
+  - first:
+      43: 4300008
+    second: Book2
+  - first:
+      43: 4300010
+    second: Book6
+  - first:
+      43: 4300012
+    second: Book4
+  - first:
+      43: 4300014
+    second: Book5
+  - first:
+      43: 4300016
+    second: Book10
+  - first:
+      43: 4300018
+    second: Book13
+  - first:
+      43: 4300020
+    second: Book9
+  - first:
+      43: 4300022
+    second: Book
+  - first:
+      43: 4300024
+    second: Book186
+  - first:
+      43: 4300026
+    second: Book185
+  - first:
+      43: 4300028
+    second: Book8
+  - first:
+      43: 4300030
+    second: Book184
+  - first:
+      43: 4300032
+    second: Book183
+  - first:
+      43: 4300034
+    second: Book182
+  - first:
+      43: 4300036
+    second: Book181
+  - first:
+      43: 4300038
+    second: Book7
+  - first:
+      43: 4300040
+    second: Book180
+  - first:
+      43: 4300042
+    second: Book3
+  - first:
+      43: 4300044
+    second: Book179
+  - first:
+      43: 4300046
+    second: Book178
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 1
     materialSearch: 2
     materialLocation: 0
@@ -140,6 +386,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -148,6 +395,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -159,35 +407,52 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 100
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -197,14 +462,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
