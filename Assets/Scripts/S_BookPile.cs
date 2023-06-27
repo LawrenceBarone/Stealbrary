@@ -50,7 +50,6 @@ public class S_BookPile : MonoBehaviour
             {
                 currentAmount++;
                 if (currentAmount > maxPileUp) currentAmount = maxPileUp;
-                print("Win");
             }
         }
     }
