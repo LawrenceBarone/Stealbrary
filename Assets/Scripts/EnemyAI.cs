@@ -146,5 +146,15 @@ namespace RPG.Control
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position + (transform.forward * 2.5f), chaseDistance );
         }
+
+
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                S_Gamemode.Instance.Loose();
+            }
+        }
     }
 }

@@ -82,6 +82,6 @@ public class S_Gamemode : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Menu");
     }
 }
