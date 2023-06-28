@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 7037e86657fc5db4b88037c54162f4f1
-=======
+<<<<<<<< HEAD:Assets/Scenes/Menu.unity.meta
+guid: 88a350c44aea6c547864d3a46500283b
+========
 guid: 46d2f8c0fa4a0bf4a92f2aed8890bbaa
->>>>>>> 896b442e7b0c61d0ed78b75183084b3e42fceb00
 folderAsset: yes
+>>>>>>>> 896b442e7b0c61d0ed78b75183084b3e42fceb00:Assets/AudioFiles.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
