@@ -56,7 +56,7 @@ public class S_Gamemode : MonoBehaviour
         if (GameOver) return;
 
         time -= Time.deltaTime;
-        display?.SetText(time.ToString("F0"));
+        display?.SetText("Time : " +time.ToString("F0"));
 
         if (time<0)
         {
