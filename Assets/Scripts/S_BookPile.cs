@@ -64,7 +64,7 @@ public class S_BookPile : MonoBehaviour
             Debug.Log("moving");
             //currentAmount = 0;
            
-            currentEulerAngles += simpleWalkerController.CalculateMovementDirection() * forceBookMultiplier * timeBeforeFallModifier * 0.7f;
+            currentEulerAngles += simpleWalkerController.CalculateMovementDirection() * forceBookMultiplier * timeBeforeFallModifier * 0.6f;
             //currentEulerAngles += new Vector3(timeBeforeFall*0.1f, 0f, 0f);
             headBookPosition.eulerAngles = currentEulerAngles;
             uI_PlayerState.SetCurrentAngle(currentEulerAngles);
@@ -76,21 +76,21 @@ public class S_BookPile : MonoBehaviour
             if(timeBeforeFall < timeSetForFall && !checkAngleState()) timeBeforeFall += Time.deltaTime;
             if (currentEulerAngles.x > 0f)
             {
-                currentEulerAngles -= new Vector3(timeSetForFall * 0.3f, 0f, 0f);
+                currentEulerAngles -= new Vector3(timeSetForFall * 0.35f, 0f, 0f);
                 headBookPosition.eulerAngles = currentEulerAngles;
             }else if(currentEulerAngles.x < 0f)
             {
-                currentEulerAngles += new Vector3(timeSetForFall * 0.3f, 0f, 0f);
+                currentEulerAngles += new Vector3(timeSetForFall * 0.35f, 0f, 0f);
                 headBookPosition.eulerAngles = currentEulerAngles;
             }
 
             if (currentEulerAngles.z > 0f)
             {
-                currentEulerAngles -= new Vector3(0f, 0f, timeSetForFall * 0.3f);
+                currentEulerAngles -= new Vector3(0f, 0f, timeSetForFall * 0.35f);
                 headBookPosition.eulerAngles = currentEulerAngles;
             }else if (currentEulerAngles.z < 0f)
             {
-                currentEulerAngles += new Vector3(0f, 0f, timeSetForFall * 0.3f);
+                currentEulerAngles += new Vector3(0f, 0f, timeSetForFall * 0.35f);
                 headBookPosition.eulerAngles = currentEulerAngles;
             }
             uI_PlayerState.SetCurrentAngle(currentEulerAngles);
