@@ -2275,6 +2275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nbOfBooks: 1
+  _totalNbOfBooks: 1
 --- !u!1001 &1349185042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2413,12 +2414,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381354372}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1999998, z: 0}
-  m_LocalScale: {x: 1, y: 0.2, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.451, z: 0.767}
+  m_LocalScale: {x: 0.5, y: 0.1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1386075670}
+  m_Father: {fileID: 1502037839}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1381354375
@@ -2626,6 +2627,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 485025126}
+    - targetCorrespondingSourceObject: {fileID: 5295460418430964499, guid: 6fe51b5580fa54210a80f7b04fea073c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1381354373}
     - targetCorrespondingSourceObject: {fileID: 7064484658288101888, guid: 6fe51b5580fa54210a80f7b04fea073c,
         type: 3}
       insertIndex: -1
@@ -2634,10 +2639,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1223842110}
-    - targetCorrespondingSourceObject: {fileID: 7064484658288101888, guid: 6fe51b5580fa54210a80f7b04fea073c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1381354373}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe51b5580fa54210a80f7b04fea073c, type: 3}
 --- !u!4 &1386075670 stripped
@@ -2818,6 +2819,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f234e43ca29d44facac647257ab41676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1502037839 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5295460418430964499, guid: 6fe51b5580fa54210a80f7b04fea073c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1382084556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1511931135
 GameObject:
   m_ObjectHideFlags: 0

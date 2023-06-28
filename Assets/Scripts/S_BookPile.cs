@@ -140,10 +140,12 @@ public class S_BookPile : MonoBehaviour
         {
             if (hit.transform.CompareTag("BooksPile"))
             {
-                currentAmount++;
-                if (currentAmount > maxPileUp) currentAmount = maxPileUp;
-                print("Win");
-                StackBook();
+               if( hit.transform.GetComponent<BookContainer>().GetABook() > 0)
+               {
+                   hit.transform.GetComponent<BookContainer>().UpdateNbOfBooks();
+                   currentAmount++;
+                   StackBook();
+               }
             }
         }
 

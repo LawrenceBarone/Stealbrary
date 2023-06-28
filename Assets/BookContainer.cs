@@ -10,9 +10,24 @@ public class BookContainer : MonoBehaviour
     [SerializeField] int _totalNbOfBooks = 1;
 
     bool regenerate = false;
+
+    private void Start()
+    {
+        numberOfBooksTxt = GetComponentInChildren<TextMeshProUGUI>();
+        ShowNbOfBooks();
+    }
+    public int GetABook()
+    {
+        Debug.Log("CALLED : " + _nbOfBooks);
+        return _nbOfBooks;
+     }
     public void UpdateNbOfBooks()
     {
-        if(_nbOfBooks > 0) _nbOfBooks--;
+        if (_nbOfBooks > 0)
+        {
+            _nbOfBooks--;
+            ShowNbOfBooks();
+        }
     }
 
     private void FixedUpdate()
@@ -30,6 +45,12 @@ public class BookContainer : MonoBehaviour
         if (regenerate)
         {
             _nbOfBooks++;
+            ShowNbOfBooks();
         }
+    }
+
+    void ShowNbOfBooks()
+    {
+        numberOfBooksTxt.text = _nbOfBooks.ToString();
     }
 }
