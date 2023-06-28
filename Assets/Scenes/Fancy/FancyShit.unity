@@ -3004,6 +3004,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8144140444691612578, guid: 6fe51b5580fa54210a80f7b04fea073c,
         type: 3}
+      propertyPath: angleToFall
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144140444691612578, guid: 6fe51b5580fa54210a80f7b04fea073c,
+        type: 3}
       propertyPath: lookDirection
       value: 
       objectReference: {fileID: 1386075670}
@@ -3011,6 +3016,11 @@ PrefabInstance:
         type: 3}
       propertyPath: offSetHeight.y
       value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144140444691612578, guid: 6fe51b5580fa54210a80f7b04fea073c,
+        type: 3}
+      propertyPath: timeBeforeFall
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8144140444691612578, guid: 6fe51b5580fa54210a80f7b04fea073c,
         type: 3}
@@ -3031,6 +3041,11 @@ PrefabInstance:
         type: 3}
       propertyPath: bookTypes.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144140444691612578, guid: 6fe51b5580fa54210a80f7b04fea073c,
+        type: 3}
+      propertyPath: timeBeforeFallModifier
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8144140444691612578, guid: 6fe51b5580fa54210a80f7b04fea073c,
         type: 3}
