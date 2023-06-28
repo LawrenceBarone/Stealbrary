@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class S_Gamemode : MonoBehaviour
 {
+    
 
     private static S_Gamemode _instance;
 
@@ -40,11 +41,14 @@ public class S_Gamemode : MonoBehaviour
     float time = 60;
     bool GameOver = false;
 
+    [SerializeField] Transform player;
+    [SerializeField] Transform startPosition;
     //Dictionary<string,score>() PlayerScore;
 
     void Start()
     {
         time = startTime;
+        EndGame();
     }
 
     void Update()
@@ -64,6 +68,11 @@ public class S_Gamemode : MonoBehaviour
     {
         GameOver = true;
         StartCoroutine(GameOverSequence());
+    }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene("FancyShit");
     }
 
     IEnumerator GameOverSequence()
