@@ -1,18 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_PlayerState : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Image img;
+    [SerializeField] S_BookPile bookpile;
+    [SerializeField] Gradient colorGradient;
+
+    float angle;
+    Vector3 currentAngle;
+
+    public void SetAngleToFall(float _angle)
     {
-        
+        angle = _angle;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetCurrentAngle(Vector3 _currentAngle)
+    {
+        currentAngle = _currentAngle;
+    }
+
+    private void FixedUpdate()
+    {
+        showStateUI();
+    }
+    void showStateUI()
     {
         
+        float x = Mathf.Abs(currentAngle.x);
+        float z = Mathf.Abs(currentAngle.z);
+        float magnitudeOfAngle = (x + z) / angle;
+        img.color = colorGradient.Evaluate(magnitudeOfAngle);
+        img.fillAmount = magnitudeOfAngle;
+
     }
+    
 }
