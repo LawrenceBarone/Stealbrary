@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,13 +9,15 @@ public class S_BookPile : MonoBehaviour
     [Header("Setup")]
     [SerializeField] Rigidbody rb;
     [SerializeField] S_InputReader inputReader;
+    [SerializeField] UI_PlayerState uI_PlayerState;
 
     [Header("Param")]
     [SerializeField] int maxPileUp = 10;
-    [SerializeField] int currentAmount = 0;
+    public int currentAmount = 0;
     [SerializeField] float sensivity = 5;
     [SerializeField] float timeBeforeFall = 3;
 
+    [Header("Head Container")]
     [SerializeField] Transform headBookPosition;
     [SerializeField] Transform lookDirection;
     [SerializeField] GameObject[] bookTypes;
@@ -22,6 +25,7 @@ public class S_BookPile : MonoBehaviour
     [SerializeField] CMF.SimpleWalkerController simpleWalkerController;
     Vector3 currentEulerAngles;
 
+    [Header("Attributes")]
     [SerializeField] float forceBookMultiplier = 0.3f;
     [SerializeField] float timeBeforeFallModifier = 1f;
     [SerializeField] int timeSetForFall = 1;
@@ -30,12 +34,19 @@ public class S_BookPile : MonoBehaviour
 
     List<GameObject> bookpile = new List<GameObject>();
 
+    public Action OnPileUpdate;
+
     private void Awake()
     {
         inputReader.AttackEvent += OnGrab;
         simpleWalkerController = GetComponent<CMF.SimpleWalkerController>();
     }
 
+    private void Start()
+    {
+        uI_PlayerState.SetCurrentAngle(currentEulerAngles);
+        uI_PlayerState.SetAngleToFall(angleToFall);
+    }
     private void Update()
     {
         Debug.Log("magnitude : " + rb.velocity.magnitude);
@@ -55,7 +66,8 @@ public class S_BookPile : MonoBehaviour
            
             currentEulerAngles += simpleWalkerController.CalculateMovementDirection() * forceBookMultiplier * timeBeforeFallModifier * 0.7f;
             //currentEulerAngles += new Vector3(timeBeforeFall*0.1f, 0f, 0f);
-            headBookPosition.eulerAngles = currentEulerAngles;        
+            headBookPosition.eulerAngles = currentEulerAngles;
+            uI_PlayerState.SetCurrentAngle(currentEulerAngles);
         }
         else 
         {
@@ -81,6 +93,7 @@ public class S_BookPile : MonoBehaviour
                 currentEulerAngles += new Vector3(0f, 0f, timeSetForFall * 0.3f);
                 headBookPosition.eulerAngles = currentEulerAngles;
             }
+            uI_PlayerState.SetCurrentAngle(currentEulerAngles);
         }
     }
 
@@ -116,6 +129,8 @@ public class S_BookPile : MonoBehaviour
         timeBeforeFall = timeSetForFall;
         timeBeforeFallModifier = 1f;
         angleToFall = 40f;
+        uI_PlayerState.SetCurrentAngle(currentEulerAngles);
+        uI_PlayerState.SetAngleToFall(angleToFall);
     }
     void OnGrab()
     {
@@ -131,6 +146,9 @@ public class S_BookPile : MonoBehaviour
                 StackBook();
             }
         }
+
+        if (OnPileUpdate!=null) OnPileUpdate();
+
     }
 
     void StackBook()
@@ -138,7 +156,8 @@ public class S_BookPile : MonoBehaviour
         offSetHeight += new Vector3(0f, 0.20f, 0f);
         timeBeforeFallModifier += 0.1f;
         angleToFall -= 1f;
-        int _rand = Random.Range(0, bookTypes.Length);
+        uI_PlayerState.SetAngleToFall(angleToFall);
+        int _rand = UnityEngine.Random.Range(0, bookTypes.Length);
         GameObject go = Instantiate(bookTypes[_rand], headBookPosition.position + offSetHeight, lookDirection.rotation);
         go.transform.parent = headBookPosition;
         bookpile.Add(go);
@@ -154,5 +173,7 @@ public class S_BookPile : MonoBehaviour
             go.GetComponent<Rigidbody>().useGravity = true;
         }
         bookpile.Clear();
+
+        if (OnPileUpdate != null) OnPileUpdate();
     }
 }

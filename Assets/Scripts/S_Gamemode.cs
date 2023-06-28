@@ -36,6 +36,7 @@ public class S_Gamemode : MonoBehaviour
 
     public float startTime = 60;
     public int score;
+    public TMPro.TextMeshProUGUI display;
     float time = 60;
     bool GameOver = false;
 
@@ -51,16 +52,12 @@ public class S_Gamemode : MonoBehaviour
         if (GameOver) return;
 
         time -= Time.deltaTime;
+        display?.SetText(time.ToString("F0"));
 
         if (time<0)
         {
             Loose();
         }
-    }
-
-    public void Win()
-    {
-
     }
 
     public void Loose()
