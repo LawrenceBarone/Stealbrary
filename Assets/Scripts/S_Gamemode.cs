@@ -48,7 +48,6 @@ public class S_Gamemode : MonoBehaviour
     void Start()
     {
         time = startTime;
-        EndGame();
     }
 
     void Update()

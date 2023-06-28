@@ -6,6 +6,7 @@ public class FinishZone : MonoBehaviour
 {
     public int score = 0;
     [SerializeField] GameObject confetti;
+    [SerializeField] AudioSource source;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -15,6 +16,7 @@ public class FinishZone : MonoBehaviour
             {
                 GameObject go = Instantiate(confetti, transform.position, Quaternion.identity);
                 Destroy(go, 3);
+                source.Play();
             }
         }
     }

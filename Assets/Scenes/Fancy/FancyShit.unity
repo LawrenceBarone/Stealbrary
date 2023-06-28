@@ -4301,6 +4301,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7250471157539851301, guid: 439002b616af5b2469bb28f34e1f1373,
         type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 7250471157539851301, guid: 439002b616af5b2469bb28f34e1f1373,
+        type: 3}
       propertyPath: m_Name
       value: FinishZone
       objectReference: {fileID: 0}
