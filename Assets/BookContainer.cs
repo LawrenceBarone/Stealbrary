@@ -34,19 +34,22 @@ public class BookContainer : MonoBehaviour
     {
         if (_totalNbOfBooks > _nbOfBooks)
         {
-            regenerate = true;
-            RegenerateBook();
+            if (!regenerate)
+            {
+                regenerate = true;
+                StartCoroutine(RegenerateBook());
+            }
+            
         }
-        else regenerate = false;
     }
 
-    void RegenerateBook()
+    IEnumerator RegenerateBook()
     {
-        if (regenerate)
-        {
-            _nbOfBooks++;
-            ShowNbOfBooks();
-        }
+        yield return new WaitForSeconds(5f);
+        _nbOfBooks++;
+        ShowNbOfBooks();
+        regenerate = false;
+
     }
 
     void ShowNbOfBooks()
