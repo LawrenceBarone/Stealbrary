@@ -24,12 +24,13 @@ public class FinishZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            score = other.gameObject.GetComponent<S_BookPile>().GiveAllBooks();
+            score += other.gameObject.GetComponent<S_BookPile>().GiveAllBooks();
             if (score != 0)
             {
                 GameObject go = Instantiate(confetti, transform.position, Quaternion.identity);
                 Destroy(go, 3);
                 source.Play();
+
             }
         }
     }
