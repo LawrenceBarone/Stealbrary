@@ -6,11 +6,11 @@ public class S_PlayerAnimController : MonoBehaviour
 {
     [SerializeField] S_BookPile booksPile;
     [SerializeField] Animator anim;
-    /*
+    
     // Start is called before the first frame update
     void Awake()
     {
-        booksPile.OnTakeBook += UpdateAnimation;
+        booksPile.OnPileUpdate += UpdateAnimation;
     }
 
     // Update is called once per frame
@@ -25,5 +25,5 @@ public class S_PlayerAnimController : MonoBehaviour
             anim.SetBool("isHolding", false);
         }
     }
-    */
+    
 }
