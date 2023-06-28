@@ -8,6 +8,8 @@ using Newtonsoft.Json;
 using UnityEngine.UI;
 using Unity.Services.Leaderboards.Models;
 using Unity.Services.Leaderboards.Exceptions;
+using UnityEngine.SceneManagement;
+using System;
 
 public class S_Leaderboard : MonoBehaviour
 {
@@ -64,12 +66,7 @@ public class S_Leaderboard : MonoBehaviour
     }
 
 
-    public async void AddScore(int score)
-    {
-        var playerEntry = await LeaderboardsService.Instance
-            .AddPlayerScoreAsync(leaderboardId, score);
-        Debug.Log(JsonConvert.SerializeObject(playerEntry));
-    }
+   
 
     public async void GetScore()
     {
@@ -89,4 +86,23 @@ public class S_Leaderboard : MonoBehaviour
             print(rankDropDown.options[rankDropDown.value].text.ToString());
         }
     }
+
+    public void LaunchGame()
+    {
+        try
+        {
+
+            if (AuthenticationService.Instance.IsSignedIn)
+            {
+                print("Online");
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.Log("Offline");
+        }
+
+        SceneManager.LoadScene("FancyShit");
+    }
+
 }

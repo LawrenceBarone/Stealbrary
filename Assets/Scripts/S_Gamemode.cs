@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,6 +42,8 @@ public class S_Gamemode : MonoBehaviour
     float time = 60;
     bool GameOver = false;
 
+    public Action TimeUp;
+
     [SerializeField] Transform player;
     [SerializeField] Transform startPosition;
     //Dictionary<string,score>() PlayerScore;
@@ -67,6 +70,7 @@ public class S_Gamemode : MonoBehaviour
     {
         GameOver = true;
         StartCoroutine(GameOverSequence());
+        if (TimeUp != null) TimeUp();
     }
 
     public void EndGame()
