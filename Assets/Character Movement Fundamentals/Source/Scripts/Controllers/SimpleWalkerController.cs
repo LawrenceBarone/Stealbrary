@@ -75,7 +75,7 @@ namespace CMF
             mover.SetVelocity(_velocity);
         }
 
-        private Vector3 CalculateMovementDirection()
+        public Vector3 CalculateMovementDirection()
         {
             //If no character input script is attached to this object, return no input;
 			if(characterInput == null)

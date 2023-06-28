@@ -13,33 +13,107 @@ public class S_BookPile : MonoBehaviour
     [SerializeField] int maxPileUp = 10;
     [SerializeField] int currentAmount = 0;
     [SerializeField] float sensivity = 5;
-    [SerializeField] float timeBeforeFall = 1;
+    [SerializeField] float timeBeforeFall = 3;
+
+    [SerializeField] Transform headBookPosition;
+    [SerializeField] Transform lookDirection;
+    [SerializeField] GameObject[] bookTypes;
+    [SerializeField] Vector3 offSetHeight;
+    [SerializeField] CMF.SimpleWalkerController simpleWalkerController;
+    Vector3 currentEulerAngles;
+
+    [SerializeField] float forceBookMultiplier = 0.3f;
+    [SerializeField] float timeBeforeFallModifier = 1f;
+    [SerializeField] float shakeIntensity;
+
+    List<GameObject> bookpile = new List<GameObject>();
 
     private void Awake()
     {
         inputReader.AttackEvent += OnGrab;
+        simpleWalkerController = GetComponent<CMF.SimpleWalkerController>();
     }
-
 
     private void Update()
     {
-        if (rb.velocity.magnitude >sensivity)
+        Debug.Log("magnitude : " + rb.velocity.magnitude);
+        if (bookpile.Count == 0) return;
+        if (rb.velocity.magnitude > sensivity)
         {
-            Debug.Log("reset");
+            Debug.Log("moving");
             //currentAmount = 0;
-            timeBeforeFall -= Time.deltaTime;
-
-            if (timeBeforeFall<0)
+            timeBeforeFall -= Time.deltaTime * timeBeforeFallModifier;
+            currentEulerAngles += simpleWalkerController.CalculateMovementDirection() * forceBookMultiplier * timeBeforeFallModifier * 0.7f;
+            //currentEulerAngles += new Vector3(timeBeforeFall*0.1f, 0f, 0f);
+            headBookPosition.eulerAngles = currentEulerAngles;
+            if (timeBeforeFall < 0)
             {
-                currentAmount = 0;
+                BookFall();
+            }
+            if(currentEulerAngles.x > 45f)
+            {
+                BookFall();
+            }
+            if (currentEulerAngles.z > 45f)
+            {
+                BookFall();
+            }
+            if (currentEulerAngles.x < -45f)
+            {
+                BookFall();
+            }
+            if (currentEulerAngles.z < -45f)
+            {
+                BookFall();
             }
         }
         else 
         {
-            timeBeforeFall = 1;
+            Debug.Log("recovering");
+            if(timeBeforeFall < 3) timeBeforeFall += Time.deltaTime;
+            if (currentEulerAngles.x > 0f)
+            {
+                currentEulerAngles -= new Vector3(timeBeforeFall * 0.2f, 0f, 0f);
+                headBookPosition.eulerAngles = currentEulerAngles;
+            }else if(currentEulerAngles.x < 0f)
+            {
+                currentEulerAngles += new Vector3(timeBeforeFall * 0.2f, 0f, 0f);
+                headBookPosition.eulerAngles = currentEulerAngles;
+            }
+
+            //if (currentEulerAngles.y > 0f)
+            //{
+            //    currentEulerAngles -= new Vector3(0f, timeBeforeFall * 0.1f, 0f);
+            //    headBookPosition.eulerAngles = currentEulerAngles;
+            //}else if (currentEulerAngles.y < 0f)
+            //{
+            //    currentEulerAngles += new Vector3(0f, timeBeforeFall * 0.1f, 0f);
+            //    headBookPosition.eulerAngles = currentEulerAngles;
+            //}
+
+            if (currentEulerAngles.z > 0f)
+            {
+                currentEulerAngles -= new Vector3(0f, 0f, timeBeforeFall * 0.2f);
+                headBookPosition.eulerAngles = currentEulerAngles;
+            }else if (currentEulerAngles.z < 0f)
+            {
+                currentEulerAngles += new Vector3(0f, 0f, timeBeforeFall * 0.2f);
+                headBookPosition.eulerAngles = currentEulerAngles;
+            }
         }
     }
 
+    void BookFall()
+    {
+        Debug.Log("fall");
+        CleanBookStack();
+        currentAmount = 0;
+        offSetHeight = new Vector3(0, 0, 0);
+        currentEulerAngles = new Vector3(0f, 0f, 0f);
+        headBookPosition.eulerAngles = currentEulerAngles;
+        timeBeforeFall = 3;
+        timeBeforeFallModifier = 1f;
+    }
     void OnGrab()
     {
         RaycastHit[] hits = Physics.BoxCastAll(transform.position, Vector3.one, Vector3.up, Quaternion.identity, Mathf.Infinity);
@@ -51,7 +125,30 @@ public class S_BookPile : MonoBehaviour
                 currentAmount++;
                 if (currentAmount > maxPileUp) currentAmount = maxPileUp;
                 print("Win");
+                StackBook();
             }
         }
+    }
+
+    void StackBook()
+    {
+        offSetHeight += new Vector3(0f, 0.20f, 0f);
+        timeBeforeFallModifier += 0.1f;
+        int _rand = Random.Range(0, bookTypes.Length);
+        GameObject go = Instantiate(bookTypes[_rand], headBookPosition.position + offSetHeight, lookDirection.rotation);
+        go.transform.parent = headBookPosition;
+        bookpile.Add(go);
+    }
+
+    void CleanBookStack()
+    {
+        
+        foreach(GameObject go in bookpile)
+        {
+            go.transform.parent = null;
+            go.AddComponent<Rigidbody>();
+            go.GetComponent<Rigidbody>().useGravity = true;
+        }
+        bookpile.Clear();
     }
 }
