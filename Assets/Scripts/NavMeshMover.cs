@@ -17,21 +17,6 @@ using UnityEngine.AI;
 
         }
 
-        private void GetAnimator()
-        {
-
-            if (!anim) anim = GetComponent<Animator>();
-        }
-        void Start()
-        {
-            GetAnimator();
-        }
-        void Update()
-        {
-
-            UpdateAnimator();
-        }
-
         public void StartMoveAction(Vector3 destination, float speedFraction)
         {
             MoveTo(destination, speedFraction);
@@ -77,18 +62,6 @@ using UnityEngine.AI;
         public void Cancel()
         {
             navMeshAgent.isStopped = true;
-        }
-
-        Vector3 velocity;
-        Vector3 localVelocity;
-        Animator anim;
-        private void UpdateAnimator()
-        {
-            velocity = navMeshAgent.velocity;
-            localVelocity = transform.InverseTransformDirection(velocity);
-            float speed = localVelocity.z;
-            anim.SetFloat("forwardSpeed", speed);
-
         }
 
         private float GetPathLength(NavMeshPath path)
