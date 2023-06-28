@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Voxel Arsenal/Upgrades/Voxel Arsenal 2019.4.24f1 URP Upgrade.unitypackage.meta
+guid: a7dda54a8c454ca47b634309e1f54000
+DefaultImporter:
+========
 guid: c674668a350cd214d9ce11931759f26e
 NativeFormatImporter:
+>>>>>>>> 896b442e7b0c61d0ed78b75183084b3e42fceb00:Assets/Art/Materials/black.mat.meta
   externalObjects: {}
   mainObjectFileID: 2100000
   userData: 
