@@ -160,7 +160,7 @@ public class S_BookPile : MonoBehaviour
         angleToFall -= 1f;
         uI_PlayerState.SetAngleToFall(angleToFall);
         int _rand = UnityEngine.Random.Range(0, bookTypes.Length);
-        GameObject go = Instantiate(bookTypes[_rand], headBookPosition.position + offSetHeight, lookDirection.rotation);
+        GameObject go = Instantiate(bookTypes[_rand], headBookPosition.position + offSetHeight, bookTypes[_rand].transform.rotation);
         go.transform.parent = headBookPosition;
         bookpile.Add(go);
     }
@@ -172,10 +172,21 @@ public class S_BookPile : MonoBehaviour
         {
             go.transform.parent = null;
             go.AddComponent<Rigidbody>();
+            go.AddComponent<BoxCollider>();
             go.GetComponent<Rigidbody>().useGravity = true;
+            int randomT = UnityEngine.Random.Range(2, 7);
+            Destroy(go, randomT);
         }
         bookpile.Clear();
 
         if (OnPileUpdate != null) OnPileUpdate();
+    }
+
+    public int GiveAllBooks()
+    {
+        int _nbBooks = 0;
+        _nbBooks = bookpile.Count;
+        BookFall();
+        return _nbBooks;
     }
 }
