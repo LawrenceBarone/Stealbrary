@@ -7,6 +7,9 @@ public class FinishZone : MonoBehaviour
     public int score = 0;
     [SerializeField] GameObject confetti;
     [SerializeField] AudioSource source;
+
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
