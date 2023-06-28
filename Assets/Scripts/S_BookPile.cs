@@ -24,7 +24,7 @@ public class S_BookPile : MonoBehaviour
 
     [SerializeField] float forceBookMultiplier = 0.3f;
     [SerializeField] float timeBeforeFallModifier = 1f;
-    [SerializeField] int timeSetForFall = 2;
+    [SerializeField] int timeSetForFall = 1;
     [SerializeField] float shakeIntensity;
     [SerializeField] float angleToFall = 40;
 
@@ -40,6 +40,14 @@ public class S_BookPile : MonoBehaviour
     {
         Debug.Log("magnitude : " + rb.velocity.magnitude);
         if (bookpile.Count == 0) return;
+        if (checkAngleState())
+        {
+            timeBeforeFall -= Time.deltaTime * timeBeforeFallModifier * 1.5f;
+            if (timeBeforeFall < 0)
+            {
+                BookFall();
+            }
+        }
         if (rb.velocity.magnitude > sensivity)
         {
             Debug.Log("moving");
@@ -47,39 +55,30 @@ public class S_BookPile : MonoBehaviour
            
             currentEulerAngles += simpleWalkerController.CalculateMovementDirection() * forceBookMultiplier * timeBeforeFallModifier * 0.7f;
             //currentEulerAngles += new Vector3(timeBeforeFall*0.1f, 0f, 0f);
-            headBookPosition.eulerAngles = currentEulerAngles;
-            if (checkAngleState())
-            {
-                timeBeforeFall -= Time.deltaTime * timeBeforeFallModifier * 1.5f;
-                if (timeBeforeFall < 0)
-                {
-                    BookFall();
-                }
-            }
-            
-            
+            headBookPosition.eulerAngles = currentEulerAngles;        
         }
         else 
         {
             Debug.Log("recovering");
-            if(timeBeforeFall < timeSetForFall) timeBeforeFall += Time.deltaTime;
+            
+            if(timeBeforeFall < timeSetForFall && !checkAngleState()) timeBeforeFall += Time.deltaTime;
             if (currentEulerAngles.x > 0f)
             {
-                currentEulerAngles -= new Vector3(timeBeforeFall * 0.2f, 0f, 0f);
+                currentEulerAngles -= new Vector3(timeSetForFall * 0.3f, 0f, 0f);
                 headBookPosition.eulerAngles = currentEulerAngles;
             }else if(currentEulerAngles.x < 0f)
             {
-                currentEulerAngles += new Vector3(timeBeforeFall * 0.2f, 0f, 0f);
+                currentEulerAngles += new Vector3(timeSetForFall * 0.3f, 0f, 0f);
                 headBookPosition.eulerAngles = currentEulerAngles;
             }
 
             if (currentEulerAngles.z > 0f)
             {
-                currentEulerAngles -= new Vector3(0f, 0f, timeBeforeFall * 0.2f);
+                currentEulerAngles -= new Vector3(0f, 0f, timeSetForFall * 0.3f);
                 headBookPosition.eulerAngles = currentEulerAngles;
             }else if (currentEulerAngles.z < 0f)
             {
-                currentEulerAngles += new Vector3(0f, 0f, timeBeforeFall * 0.2f);
+                currentEulerAngles += new Vector3(0f, 0f, timeSetForFall * 0.3f);
                 headBookPosition.eulerAngles = currentEulerAngles;
             }
         }
