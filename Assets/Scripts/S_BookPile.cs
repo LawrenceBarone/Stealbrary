@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class S_BookPile : MonoBehaviour
 
     [Header("Param")]
     [SerializeField] int maxPileUp = 10;
-    [SerializeField] int currentAmount = 0;
+    public int currentAmount = 0;
     [SerializeField] float sensivity = 5;
     [SerializeField] float timeBeforeFall = 3;
 
@@ -32,6 +33,8 @@ public class S_BookPile : MonoBehaviour
     [SerializeField] float angleToFall = 40;
 
     List<GameObject> bookpile = new List<GameObject>();
+
+    public Action OnPileUpdate;
 
     private void Awake()
     {
@@ -143,6 +146,9 @@ public class S_BookPile : MonoBehaviour
                 StackBook();
             }
         }
+
+        if (OnPileUpdate!=null) OnPileUpdate();
+
     }
 
     void StackBook()
@@ -151,7 +157,7 @@ public class S_BookPile : MonoBehaviour
         timeBeforeFallModifier += 0.1f;
         angleToFall -= 1f;
         uI_PlayerState.SetAngleToFall(angleToFall);
-        int _rand = Random.Range(0, bookTypes.Length);
+        int _rand = UnityEngine.Random.Range(0, bookTypes.Length);
         GameObject go = Instantiate(bookTypes[_rand], headBookPosition.position + offSetHeight, lookDirection.rotation);
         go.transform.parent = headBookPosition;
         bookpile.Add(go);
@@ -167,5 +173,7 @@ public class S_BookPile : MonoBehaviour
             go.GetComponent<Rigidbody>().useGravity = true;
         }
         bookpile.Clear();
+
+        if (OnPileUpdate != null) OnPileUpdate();
     }
 }
