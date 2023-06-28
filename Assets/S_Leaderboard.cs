@@ -14,6 +14,7 @@ public class S_Leaderboard : MonoBehaviour
 
     [SerializeField] string leaderboardId;
     [SerializeField] TMPro.TMP_InputField nameInputField;
+    [SerializeField] Button PlayButton;
     [SerializeField] TMPro.TMP_Dropdown rankDropDown;
     [SerializeField] TMPro.TextMeshProUGUI WinTextLabel;
 
@@ -24,6 +25,8 @@ public class S_Leaderboard : MonoBehaviour
 
     private async void Awake()
     {
+        PlayButton.interactable = false;
+
         try
         {
             await UnityServices.InitializeAsync();
@@ -39,8 +42,6 @@ public class S_Leaderboard : MonoBehaviour
             Debug.Log("Offline");
         }
 
- 
-
         //List<Dropdown.OptionData> optionDatas = new List<Dropdown.OptionData>();
         //Dropdown.OptionData optionData = new Dropdown.OptionData();
         //optionData.text = "Bronze";
@@ -54,6 +55,11 @@ public class S_Leaderboard : MonoBehaviour
         {
             playerName = _playerName;
             AuthenticationService.Instance.UpdatePlayerNameAsync(playerName);
+            PlayButton.interactable = true;
+        }
+        else
+        {
+            PlayButton.interactable = false;
         }
     }
 
@@ -82,7 +88,5 @@ public class S_Leaderboard : MonoBehaviour
         {
             print(rankDropDown.options[rankDropDown.value].text.ToString());
         }
-    
-
     }
 }
