@@ -30,6 +30,11 @@ namespace RPG.Control
         [SerializeField] UnityEvent DeadEvent;
         bool DidOnce = false;
 
+        [SerializeField] Animator anim;
+        [SerializeField] AudioSource stopRightThereSoundSource;
+        [SerializeField] AudioSource hmmSoundSource;
+        bool StopRightThereOnlyOnce;
+        bool hmmOnlyOnce;
 
         private void Awake()
         { 
@@ -48,14 +53,34 @@ namespace RPG.Control
             if (InAttackRangeOfPlayer() )
             {
                 AttackBehaviour();
+
+                if (StopRightThereOnlyOnce)
+                {
+                    stopRightThereSoundSource.Play();
+                    StopRightThereOnlyOnce = false;
+                }
+                hmmOnlyOnce = true;
+
             }
             else if (timeSinceLastSawPlayer < suspicionTime)
             {
                 mover.Cancel();
+                anim.speed = 2;
+
+                if (hmmOnlyOnce)
+                {
+                    hmmSoundSource.Play();
+                    hmmOnlyOnce = false;
+                }
+                StopRightThereOnlyOnce = true;
             }
             else
             {
+                StopRightThereOnlyOnce = true;
+                hmmOnlyOnce = true;
+
                 PatrolBehaviour();
+                anim.speed = 1;
             }
 
             UpdateTimers();
@@ -101,16 +126,17 @@ namespace RPG.Control
             return patrolPath.GetWaypoint(currentWaypointIndex);
         }
 
+
         private void AttackBehaviour()
         {
-
             timeSinceLastSawPlayer = 0;
             mover.MoveTo(player.transform.position, 2);
+            anim.speed = 4;
         }
 
         private bool InAttackRangeOfPlayer()
         {
-            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position + (transform.forward*2.5f));
             return distanceToPlayer < chaseDistance;
         }
 
@@ -118,7 +144,7 @@ namespace RPG.Control
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, chaseDistance);
+            Gizmos.DrawWireSphere(transform.position + (transform.forward * 2.5f), chaseDistance );
         }
     }
 }

@@ -32,6 +32,8 @@ namespace CMF
 		[SerializeField] [Range(3, 10)] int sensorArrayRayCount = 6;
 		[SerializeField] bool sensorArrayRowsAreOffset = false;
 
+		[SerializeField] AudioSource source;
+
 		[HideInInspector] public Vector3[] raycastArrayPreviewPositions;
 
 		//Ground detection variables;
