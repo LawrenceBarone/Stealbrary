@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Art/Materials/Purple.mat.meta
 guid: c7b4ee209aa20034fa3a5fea290fa5f9
 NativeFormatImporter:
+========
+guid: 7037e86657fc5db4b88037c54162f4f1
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> 2cb66fd4620e1cd5b3718a6743e1983f596843d6:Assets/AudioFiles.meta
   externalObjects: {}
   mainObjectFileID: 2100000
   userData: 
