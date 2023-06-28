@@ -1887,6 +1887,11 @@ PrefabInstance:
       objectReference: {fileID: 1386075670}
     - target: {fileID: 8144140444691612578, guid: 6fe51b5580fa54210a80f7b04fea073c,
         type: 3}
+      propertyPath: timeSetForFall
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144140444691612578, guid: 6fe51b5580fa54210a80f7b04fea073c,
+        type: 3}
       propertyPath: headBookPosition
       value: 
       objectReference: {fileID: 1381354373}
